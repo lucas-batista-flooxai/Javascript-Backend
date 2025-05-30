@@ -1,7 +1,7 @@
 module.exports = {
   user: (app, req, res) => {
-    req.assert("name", "O nome é obrigatório.").notEmpty();
-    req.assert("email", "O e-mail está inválido.").notEmpty().isEmail();
+    req.assert("_name", "O nome é obrigatório.").notEmpty();
+    req.assert("_email", "O e-mail está inválido.").notEmpty().isEmail();
 
     let errors = req.validationErrors();
 
@@ -9,7 +9,7 @@ module.exports = {
       app.utils.error.send(errors, req, res);
       return false;
     } else {
-        return true;
+      return true;
     }
   },
 };
